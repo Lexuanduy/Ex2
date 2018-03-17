@@ -1,0 +1,43 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package package21;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author xuanhung
+ */
+public class EmployeeController {
+
+    public void printEmpInformation(Employee emp) {
+        if (emp.getStatus() == 0) {
+            System.err.println("Nhân viên đã nghỉ việc hoặc không tồn tại.");
+            return;
+        }        
+        System.out.println("Nhân viên: " + emp.getName());
+        System.out.println("Mức lương: " + emp.getSalaryPerHour() * emp.getWorkingHours());
+    }
+    
+    public Employee getEmployeeInfor(){        
+        Scanner sc = new Scanner(System.in);
+       
+        System.out.println("Vui lòng nhập tên nhân viên: ");
+        String name = sc.nextLine();
+        System.out.println("Vui lòng nhập email: ");
+        String email = sc.nextLine();
+        System.out.println("Vui lòng nhập số điện thoại: ");
+        String phone = sc.nextLine();
+        System.out.println("Vui lòng nhập số giờ làm việc: ");
+        int workingHours = Integer.parseInt(sc.nextLine());
+        System.out.println("Vui lòng nhập số tiền làm trong 1h: ");
+        int salaryPerHour = Integer.parseInt(sc.nextLine());
+        
+        Employee emp = new Employee(name, email, workingHours, salaryPerHour);
+        emp.setStatus(1);
+        return emp;
+    }
+}
